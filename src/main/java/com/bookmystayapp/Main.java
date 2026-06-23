@@ -1,6 +1,7 @@
 package com.bookmystayapp;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Main {
     public static void main(String[] args) {
@@ -63,6 +64,9 @@ public class Main {
         //display booking rooms
         System.out.println("Displaying booking rooms");
         service.displayBooking();
+
+        //Reservation
+        service.confirmReservation();
 
     }
 }
