@@ -5,6 +5,17 @@ public class Reservation {
     private String roomType;
     private String guestName;
 
+    private String status = "pending";
+    private String allocatedRoomId = "NOT_Assigned";
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public void setAllocatedRoomId(String allocatedRoomId) {
+        this.allocatedRoomId = allocatedRoomId;
+    }
+
     public Reservation(int reservationID, String roomType, String guestName) {
         this.reservationID = reservationID;
         this.roomType = roomType;
@@ -28,8 +39,9 @@ public class Reservation {
         return "Reservation{" +
                 "reservationID=" + reservationID +
                 ", roomType='" + roomType + '\'' +
-                ", roomName='" + guestName + '\'' +
+                ", guestName='" + guestName + '\'' +
+                ", status='" + status + '\'' +
+                ", allocatedRoomId='" + allocatedRoomId + '\'' +
                 '}';
     }
-
 }

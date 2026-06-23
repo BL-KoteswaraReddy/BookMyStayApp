@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 
 public class RoomInventoryService {
-    HashMap<String, Integer> roomInventory = new HashMap<>();
+
+   static HashMap<String, Integer> roomInventory = new HashMap<>();
     HashMap<String, Double> roomPrices = new HashMap<>();
 
     HashMap<String, List<String>> roomAmentiesMap = new HashMap<>();
@@ -76,4 +77,6 @@ public class RoomInventoryService {
             System.out.println("Status : Not available");
         }
     }
+
+
 }
