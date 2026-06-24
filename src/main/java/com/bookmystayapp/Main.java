@@ -68,5 +68,18 @@ public class Main {
         //Reservation
         service.confirmReservation();
 
+        //Service selection
+        Services services = new Services();
+        Services breakFast = new Services("Breakfast", 150);
+        Services spa = new Services("Spa", 2000);
+        Services pickup = new Services("Airport Pickup", 1500);
+
+        ServiceManagementModule serviceManagementModule = new ServiceManagementModule();
+        serviceManagementModule.addService("S1", breakFast );
+        serviceManagementModule.addService("D2", spa);
+        serviceManagementModule.addService("S1", pickup);
+
+        //calculate total service cost
+        System.out.println("Total service cost ₹:"+serviceManagementModule.calculateTotalServiceCost("S1"));
     }
 }

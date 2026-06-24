@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RoomInventoryService {
 
-   static HashMap<String, Integer> roomInventory = new HashMap<>();
+    static HashMap<String, Integer> roomInventory = new HashMap<>();
     HashMap<String, Double> roomPrices = new HashMap<>();
 
     HashMap<String, List<String>> roomAmentiesMap = new HashMap<>();
