@@ -1,7 +1,7 @@
 package com.bookmystayapp;
 
 public class Reservation {
-    private int reservationID;
+    private String reservationID;
     private String roomType;
     private String guestName;
 
@@ -12,17 +12,25 @@ public class Reservation {
         this.status = status;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public String getAllocatedRoomId() {
+        return allocatedRoomId;
+    }
+
     public void setAllocatedRoomId(String allocatedRoomId) {
         this.allocatedRoomId = allocatedRoomId;
     }
 
-    public Reservation(int reservationID, String roomType, String guestName) {
+    public Reservation(String reservationID, String roomType, String guestName) {
         this.reservationID = reservationID;
         this.roomType = roomType;
         this.guestName = guestName;
     }
 
-    public int getReservationID() {
+    public String getReservationID() {
         return reservationID;
     }
 
