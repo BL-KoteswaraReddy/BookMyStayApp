@@ -8,6 +8,15 @@ public class BookingQueueService {
     Set<String> bookedRoomIds = new HashSet<>();
     HashMap<String, Set<String>> roomAllocations = new HashMap<>();
 
+    ReportingService reportingService;
+
+    public BookingQueueService(ReportingService reportingService) {
+        this.reportingService = reportingService;
+    }
+    public BookingQueueService()
+    {
+
+    }
 
     public void confirmReservation()
     {
@@ -17,7 +26,7 @@ public class BookingQueueService {
             return;
         }
 
-        Reservation reservation = bookingQueue.peek();
+        Reservation reservation = bookingQueue.poll();
         String roomType = reservation.getRoomType();
 
         if(!RoomInventoryService.roomInventory.containsKey(roomType) || RoomInventoryService.roomInventory.get(roomType)<=0)
@@ -31,6 +40,7 @@ public class BookingQueueService {
         reservation.setStatus("Confirmed");
 
         System.out.println("Booking confirmed");
+        reportingService.bookingHistory.add(reservation);
         System.out.println(reservation);
     }
 

@@ -54,11 +54,12 @@ public class Main {
 
 
         //rooms booking
-        BookingQueueService service = new BookingQueueService();
-        service.bookRoom(new Reservation(12, "single", "koti"));
-        service.bookRoom(new Reservation(123, "double", "Nivrutti"));
-        service.bookRoom(new Reservation(1234, "suite", "sahil"));
-        service.bookRoom(new Reservation(1235, "single", "vishal"));
+        ReportingService reportingService = new ReportingService();
+        BookingQueueService service = new BookingQueueService(reportingService);
+        service.bookRoom(new Reservation("S1", "single", "koti"));
+        service.bookRoom(new Reservation("D1", "double", "Nivrutti"));
+        service.bookRoom(new Reservation("SU1", "suite", "sahil"));
+        service.bookRoom(new Reservation("S1", "single", "vishal"));
 
         service.processNextBooking();
         //display booking rooms
@@ -81,5 +82,18 @@ public class Main {
 
         //calculate total service cost
         System.out.println("Total service cost ₹:"+serviceManagementModule.calculateTotalServiceCost("S1"));
+
+        //Booking History
+        System.out.println(reportingService.bookingHistory.size());
+        reportingService.displayBookingHistory();
+
+        //reservations
+        service.confirmReservation();
+        service.confirmReservation();
+        service.confirmReservation();
+        reportingService.cancelReservation("D1");
+
+        //generate report
+        reportingService.generateReport();
     }
 }
